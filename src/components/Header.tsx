@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
-import { BRAND, COLORS } from "../lib/brand";
+import { COLORS } from "../lib/brand";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
