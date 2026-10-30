@@ -1,4 +1,4 @@
-﻿import { useState, createElement } from "react";
+import { useState, createElement } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { BRAND, COLORS } from "../lib/brand";
@@ -125,23 +125,12 @@ export function Contact() {
               <input type="tel" placeholder="WhatsApp" value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} style={inputStyle} />
               <select required value={form.package} onChange={(e) => setForm({ ...form, package: e.target.value })} style={inputStyle}>
                 <option value="">Tipo de proyecto</option>
-                <option value="Landing Essential">Landing Essential</option>
-                <option value="Web Business">Web Business</option>
-                <option value="E-commerce Starter">E-commerce Starter</option>
-                <option value="E-commerce Pro">E-commerce Pro</option>
-                <option value="Sistema a medida">Sistema a medida</option>
-                <option value="No estoy seguro">No estoy seguro</option>
-              </select>
-            </div>
-
-            <div className="mb-4">
-              <select value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} style={inputStyle}>
-                <option value="">Presupuesto aproximado</option>
-                <option value="lt200">Menos de 200$</option>
-                <option value="200-500">200$ - 500$</option>
-                <option value="500-1000">500$ - 1.000$</option>
-                <option value="1000-2000">1.000$ - 2.000$</option>
-                <option value="gt2000">Mas de 2.000$</option>
+                <option value="Website / Landing / E-commerce">Website / Landing / E-commerce</option>
+                <option value="Diseño Figma a Código Web">Diseño Figma a Código Web</option>
+                <option value="Sistema ERP / Odoo">Sistema ERP / Odoo</option>
+                <option value="Gestión de Negocios (Clínica, Inmobiliaria, Restaurante)">Gestión de Negocios a Medida</option>
+                <option value="Automatización IA / Bots / Scrapers">Automatización IA / Bots / Scrapers</option>
+                <option value="Otro">Otro / Consulta general</option>
               </select>
             </div>
 

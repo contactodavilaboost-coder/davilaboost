@@ -10,28 +10,28 @@ type FaqItem = {
 
 const faqs: FaqItem[] = [
   {
-    q: "¿El dominio y hosting están incluidos en el precio?",
-    a: "Depende del paquete. El Web Business y superiores incluyen el primer año de dominio. El hosting en Netlify/Vercel es gratuito en los paquetes base. Si necesitas hosting premium o quieres manejarlo por tu cuenta, lo conversamos.",
+    q: "¿Pueden desarrollar mi página si ya tengo el diseño en Figma?",
+    a: "¡Sí! Como en el caso de Elemental, si ya cuentas con un diseño en Figma lo extraemos y maquetamos pixel-perfect a código limpio, responsive y optimizado para producción.",
   },
   {
-    q: "¿Cuánto tardas en entregar?",
-    a: "Depende del paquete: desde 5 días hábiles para una landing hasta 5 semanas para un e-commerce completo. El tiempo empieza a contar cuando recibo todo el contenido (textos, imágenes, logo).",
+    q: "¿Cuánto tardas en entregar un proyecto?",
+    a: "Depende del alcance: desde pocos días hábiles para una landing page o portafolio hasta pocas semanas para un e-commerce completo, sistema de gestión o implementación de ERP.",
   },
   {
-    q: "¿Cómo funcionan los pagos?",
-    a: "50% por adelantado para reservar el proyecto y comenzar, y 50% al momento de la entrega. Acepto Pago Móvil, Zelle, Binance Pay y transferencia internacional.",
+    q: "¿Cómo funcionan las cotizaciones y pagos?",
+    a: "Evaluamos tu requerimiento sin costo y te entregamos una propuesta clara a medida. Trabajamos con 50% para iniciar y 50% contra entrega (Pago Móvil, Zelle, Binance Pay o transferencia internacional).",
   },
   {
-    q: "¿Qué pasa si quiero cambios después de la entrega?",
-    a: "Todos los paquetes incluyen rondas de cambios durante el desarrollo. Después de entregado, los cambios se cubren con un plan de mantenimiento mensual o se cobran aparte según el alcance.",
+    q: "¿Qué pasa si necesito cambios o soporte después de la entrega?",
+    a: "Todos los desarrollos incluyen rondas de revisión durante la construcción y soporte inicial. Además ofrecemos planes de mantenimiento continuo o mejoras evolutivas según crezca tu negocio.",
   },
   {
-    q: "¿Trabajas con clientes fuera de Venezuela?",
-    a: "¡Por supuesto! Trabajo con clientes de toda Latinoamérica, Estados Unidos y Europa. Los precios internacionales se ajustan al mercado pero siguen siendo muy competitivos.",
+    q: "¿Trabajas con clientes dentro y fuera de Venezuela?",
+    a: "¡Por supuesto! Desarrollo soluciones tanto adaptadas al mercado venezolano (tasas BCV automáticas, facturación fiscal, POS Offline) como para clientes en Latinoamérica, EE.UU. y Europa.",
   },
   {
-    q: "¿Puedo administrar yo mismo la página después?",
-    a: "Sí, los paquetes de e-commerce incluyen panel de administración para que gestiones productos, pedidos y contenido. Además te doy una capacitación para que quedes cómodo usándolo.",
+    q: "¿Puedo autoadministrar mi web o sistema después?",
+    a: "Sí, entregamos paneles administrativos intuitivos y te capacitamos paso a paso para que gestiones tus productos, clientes, inventario o contenido con total independencia.",
   },
 ];
 
