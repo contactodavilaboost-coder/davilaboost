@@ -1,7 +1,7 @@
 import {
   Briefcase,
   Cpu,
-  Database,
+  Figma,
   Globe,
   type LucideIcon,
 } from "lucide-react";
@@ -20,25 +20,25 @@ const services: Service[] = [
     icon: Globe,
     title: "Websites & E-Commerce",
     badge: "Conversión & Ventas",
-    desc: "Landings de alto impacto, portafolios interactivos y tiendas online con carrito, catálogo multicategoría y panel de pedidos.",
+    desc: "Landings de alto impacto, portafolios interactivos y tiendas online de lujo con catálogo, carrito de compras y panel de pedidos.",
   },
   {
-    icon: Database,
-    title: "Sistemas ERP & Odoo",
-    badge: "Control Empresarial",
-    desc: "ERPs multimoneda con tasa BCV automática, Punto de Venta (POS) Offline-First y módulos personalizados en Odoo 18.",
+    icon: Figma,
+    title: "Figma a Código Web",
+    badge: "Pixel-Perfect 1:1",
+    desc: "¿Ya tienes el diseño en Figma? Extraigo cada componente, tipografía y espaciado para convertirlo en una web real, veloz y 100% responsive.",
   },
   {
     icon: Briefcase,
-    title: "Gestiones de Negocios",
-    badge: "Verticales a Medida",
-    desc: "Software especializado para clínicas de fisioterapia (E2EE), administración inmobiliaria, consultas nutricionales y restaurantes.",
+    title: "Plataformas por Industria",
+    badge: "SaaS & Gestión",
+    desc: "Sistemas especializados para clínicas de fisioterapia (E2EE), administración inmobiliaria, consultas nutricionales y POS para restaurantes.",
   },
   {
     icon: Cpu,
-    title: "Automatización & IA",
-    badge: "Bots & Scrapers",
-    desc: "Agentes rastreadores de precios con Playwright, flujos autónomos en n8n (Instagram / RRHH) e integraciones con WhatsApp.",
+    title: "Dirección de Arte & IA",
+    badge: "Laboratorio Creativo",
+    desc: "Sistemas propietarios para publicidad comercial de nivel agencia sin sello IA, motores de edición multipista y automatización.",
   },
 ];
 
@@ -141,7 +141,7 @@ export function Services() {
                     className="mt-6 pt-4 border-t border-white/5 text-xs font-medium flex items-center justify-between"
                     style={{ color: COLORS.tealLight }}
                   >
-                    <span>Ver proyectos en portafolio</span>
+                    <span>Ver casos en portafolio</span>
                     <span className="group-hover:translate-x-1 transition-transform">
                       →
                     </span>

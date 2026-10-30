@@ -4,8 +4,8 @@ import {
   CheckCircle2,
   Code2,
   ExternalLink,
-  FolderGit2,
   MessageCircle,
+  ShieldCheck,
   Sparkles,
   X,
 } from "lucide-react";
@@ -62,7 +62,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/75 backdrop-blur-md"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
           />
 
           {/* Modal Dialog */}
@@ -82,7 +82,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             <button
               onClick={onClose}
               aria-label="Cerrar vista previa del proyecto"
-              className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-200 hover:scale-105"
+              className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-200 hover:scale-105 cursor-pointer"
               style={{
                 backgroundColor: "rgba(20, 25, 30, 0.85)",
                 borderColor: "rgba(245, 240, 230, 0.15)",
@@ -103,18 +103,18 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 {/* Image Switcher Pills if project has multiple real screenshots */}
                 {project.images && project.images.length > 1 && (
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/15">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15 shadow-xl">
                     {project.images.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={() => setActiveImg(idx)}
-                        className={`px-2.5 py-1 rounded-full text-xs font-mono transition-all ${
+                        className={`px-3 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
                           activeImg === idx
-                            ? "bg-white text-slate-900 font-semibold"
+                            ? "bg-white text-slate-900 font-semibold shadow"
                             : "text-white/70 hover:text-white"
                         }`}
                       >
-                        Vista {idx + 1}
+                        Muestra {idx + 1}
                       </button>
                     ))}
                   </div>
@@ -242,7 +242,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </div>
                 </div>
 
-                {/* Tech Stack & Local Path */}
+                {/* Tech Stack & Verified Badge */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-white/10">
                   <div>
                     <div
@@ -268,21 +268,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     </div>
                   </div>
 
-                  {project.repoFolder && (
-                    <div
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-mono self-start sm:self-end"
-                      style={{
-                        backgroundColor: "rgba(0, 0, 0, 0.25)",
-                        borderColor: "rgba(245, 240, 230, 0.08)",
-                        color: COLORS.boneFaint,
-                      }}
-                    >
-                      <FolderGit2 size={14} style={{ color: COLORS.tealLight }} />
-                      <span className="truncate max-w-[220px]">
-                        {project.repoFolder}
-                      </span>
-                    </div>
-                  )}
+                  <div
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-mono self-start sm:self-end"
+                    style={{
+                      backgroundColor: "rgba(74, 147, 150, 0.08)",
+                      borderColor: "rgba(74, 147, 150, 0.25)",
+                      color: COLORS.tealLight,
+                    }}
+                  >
+                    <ShieldCheck size={15} />
+                    <span>Desarrollo 100% Propio · DavilaBoost</span>
+                  </div>
                 </div>
 
                 {/* Bottom Action Buttons */}
@@ -299,7 +295,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         color: COLORS.bone,
                       }}
                     >
-                      Ver Demo en Vivo
+                      Probar Sistema en Vivo
                       <ExternalLink size={16} />
                     </a>
                   )}
@@ -316,7 +312,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     }}
                   >
                     <MessageCircle size={17} />
-                    Solicitar Demo / Cotizar Sistema Similar
+                    Cotizar un Proyecto Similar
                   </a>
                 </div>
               </div>

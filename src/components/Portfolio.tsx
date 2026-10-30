@@ -110,9 +110,15 @@ export function Portfolio() {
           >
             Explora mis desarrollos divididos por área: desde{" "}
             <span style={{ color: COLORS.bone }}>Websites y E-Commerce</span>,
-            hasta <span style={{ color: COLORS.bone }}>Sistemas ERP/Odoo</span>,{" "}
-            <span style={{ color: COLORS.bone }}>Gestiones de Negocios</span> y{" "}
-            <span style={{ color: COLORS.bone }}>Proyectos de Automatización en PC</span>.
+            hasta{" "}
+            <span style={{ color: COLORS.bone }}>
+              Plataformas Especializadas por Industria
+            </span>{" "}
+            y{" "}
+            <span style={{ color: COLORS.bone }}>
+              Motores Creativos & Publicidad con IA
+            </span>
+            .
           </p>
         </Reveal>
 

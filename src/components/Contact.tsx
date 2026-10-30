@@ -1,5 +1,5 @@
 import { useState, createElement } from "react";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import { CheckCircle2, Mail, MessageCircle, Send } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { BRAND, COLORS } from "../lib/brand";
 
@@ -8,43 +8,36 @@ type FormState = {
   email: string;
   whatsapp: string;
   package: string;
-  budget: string;
   message: string;
 };
 
-type Status = "idle" | "sending" | "sent" | "error";
-
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/TU_ENDPOINT_AQUI";
-
 export function Contact() {
-  const [status, setStatus] = useState<Status>("idle");
+  const [sent, setSent] = useState(false);
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
     whatsapp: "",
     package: "",
-    budget: "",
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("sent");
-        setForm({ name: "", email: "", whatsapp: "", package: "", budget: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    const lines = [
+      `Hola Jesús! Te escribo desde el portafolio de *DavilaBoost*:`,
+      ``,
+      `• *Nombre:* ${form.name}`,
+      `• *Correo:* ${form.email}`,
+      form.whatsapp ? `• *WhatsApp:* ${form.whatsapp}` : null,
+      `• *Tipo de proyecto:* ${form.package}`,
+      `• *Detalles:* ${form.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const waUrl = `${BRAND.whatsappLink}?text=${encodeURIComponent(lines)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    setSent(true);
   };
 
   const inputStyle: React.CSSProperties = {
@@ -63,7 +56,7 @@ export function Contact() {
     "a",
     {
       href: "mailto:" + BRAND.email,
-      className: "flex items-center gap-2 transition",
+      className: "flex items-center gap-2 transition hover:text-white",
       style: { color: COLORS.boneDim },
     },
     createElement(Mail, { size: 16 }),
@@ -76,11 +69,11 @@ export function Contact() {
       href: BRAND.whatsappLink,
       target: "_blank",
       rel: "noopener noreferrer",
-      className: "flex items-center gap-2 transition",
+      className: "flex items-center gap-2 transition hover:text-white",
       style: { color: COLORS.boneDim },
     },
     createElement(MessageCircle, { size: 16 }),
-    " WhatsApp"
+    " WhatsApp Directo"
   );
 
   return (
@@ -88,21 +81,31 @@ export function Contact() {
       <div className="max-w-4xl mx-auto">
         <Reveal>
           <div className="text-center mb-4">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: COLORS.tealLight }}>
+            <span
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{ color: COLORS.tealLight }}
+            >
               Contacto
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={100}>
-          <h2 className="text-4xl md:text-5xl font-bold text-center tracking-tight mb-4" style={{ color: COLORS.bone }}>
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center tracking-tight mb-4"
+            style={{ color: COLORS.bone }}
+          >
             Hablemos de tu proyecto
           </h2>
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="text-center mb-16 max-w-xl mx-auto" style={{ color: COLORS.boneDim }}>
-            Cuéntame qué necesitas y te responderé en menos de 24 horas con una propuesta personalizada.
+          <p
+            className="text-center mb-16 max-w-xl mx-auto"
+            style={{ color: COLORS.boneDim }}
+          >
+            Cuéntame qué necesitas construir o automatizar y te responderé de
+            inmediato con una propuesta a medida.
           </p>
         </Reveal>
 
@@ -117,26 +120,60 @@ export function Contact() {
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <input required type="text" placeholder="Tu nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputStyle} />
-              <input required type="email" placeholder="Correo electronico" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle} />
+              <input
+                required
+                type="text"
+                placeholder="Tu nombre"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                style={inputStyle}
+              />
+              <input
+                required
+                type="email"
+                placeholder="Correo electrónico"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                style={inputStyle}
+              />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <input type="tel" placeholder="WhatsApp" value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} style={inputStyle} />
-              <select required value={form.package} onChange={(e) => setForm({ ...form, package: e.target.value })} style={inputStyle}>
+              <input
+                type="tel"
+                placeholder="Tu WhatsApp (opcional)"
+                value={form.whatsapp}
+                onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
+                style={inputStyle}
+              />
+              <select
+                required
+                value={form.package}
+                onChange={(e) => setForm({ ...form, package: e.target.value })}
+                style={inputStyle}
+              >
                 <option value="">Tipo de proyecto</option>
-                <option value="Website / Landing / E-commerce">Website / Landing / E-commerce</option>
-                <option value="Diseño Figma a Código Web">Diseño Figma a Código Web</option>
-                <option value="Sistema ERP / Odoo">Sistema ERP / Odoo</option>
-                <option value="Gestión de Negocios (Clínica, Inmobiliaria, Restaurante)">Gestión de Negocios a Medida</option>
-                <option value="Automatización IA / Bots / Scrapers">Automatización IA / Bots / Scrapers</option>
-                <option value="Otro">Otro / Consulta general</option>
+                <option value="Website / Landing / E-Commerce">
+                  Website / Landing / E-Commerce
+                </option>
+                <option value="Diseño Figma a Código Web">
+                  Diseño Figma a Código Web
+                </option>
+                <option value="Plataforma de Gestión (Clínica, Inmobiliaria, Restaurante)">
+                  Plataforma de Gestión a Medida
+                </option>
+                <option value="Dirección de Arte IA / Flyers / Estudio Creativo">
+                  Dirección de Arte IA / Estudio Creativo
+                </option>
+                <option value="Otro / Consulta General">
+                  Otro / Consulta General
+                </option>
               </select>
             </div>
 
             <textarea
               required
-              placeholder="Cuentame sobre tu proyecto..."
+              placeholder="Cuéntame sobre tu negocio o el sistema que necesitas..."
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -145,27 +182,40 @@ export function Contact() {
 
             <button
               type="submit"
-              disabled={status === "sending"}
-              className="w-full py-4 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
+              className="w-full py-4 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               style={{
                 backgroundColor: COLORS.teal,
                 color: COLORS.bone,
                 boxShadow: "0 10px 40px " + COLORS.teal + "50",
               }}
             >
-              {status === "sending" ? "Enviando..." : status === "sent" ? "Mensaje enviado!" : (<><span>Enviar mensaje</span><Send size={18} /></>)}
+              <span>Enviar propuesta por WhatsApp</span>
+              <Send size={18} />
             </button>
 
-            {status === "error" && (
-              <p className="text-sm text-center mt-4" style={{ color: "#f87171" }}>
-                Hubo un error. Escribeme directo a {BRAND.email}
-              </p>
+            {sent && (
+              <div
+                className="mt-4 p-3.5 rounded-2xl border flex items-center justify-center gap-2 text-xs sm:text-sm"
+                style={{
+                  backgroundColor: "rgba(74, 147, 150, 0.12)",
+                  borderColor: "rgba(74, 147, 150, 0.3)",
+                  color: COLORS.bone,
+                }}
+              >
+                <CheckCircle2 size={16} style={{ color: COLORS.tealLight }} />
+                <span>
+                  ¡Listo! Se abrió WhatsApp con el resumen de tu solicitud. También puedes escribirme a {BRAND.email}.
+                </span>
+              </div>
             )}
           </form>
         </Reveal>
 
         <Reveal delay={400}>
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm" style={{ color: COLORS.boneDim }}>
+          <div
+            className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm"
+            style={{ color: COLORS.boneDim }}
+          >
             {mailLinkEl}
             {waLinkEl}
           </div>

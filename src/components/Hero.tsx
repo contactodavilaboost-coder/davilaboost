@@ -75,7 +75,7 @@ export function Hero() {
             }}
           >
             <Sparkles size={14} />
-            Websites · Sistemas ERP · Gestión de Negocios · Automatización IA
+            Websites · Figma a Código · Plataformas SaaS · Dirección de Arte IA
           </div>
         </Reveal>
 
@@ -108,8 +108,8 @@ export function Hero() {
             style={{ color: COLORS.boneDim }}
           >
             No es trabajar duro, es trabajar inteligente. Desarrollo desde
-            landings y tiendas online hasta sistemas ERP multimoneda, plataformas
-            clínicas/inmobiliarias y agentes de IA.
+            landings, conversión desde Figma y tiendas online hasta plataformas
+            clínicas, sistemas inmobiliarios, POS gastronómicos y herramientas IA.
           </p>
         </Reveal>
 
@@ -159,7 +159,7 @@ export function Hero() {
             />
             <div className="flex items-center gap-2">
               <Rocket size={16} style={{ color: COLORS.tealLight }} />
-              +14 Sistemas Construidos
+              Demos Interactivos en Vivo
             </div>
             <div
               className="w-1 h-1 rounded-full hidden sm:block"
@@ -167,7 +167,7 @@ export function Hero() {
             />
             <div className="flex items-center gap-2">
               <Sparkles size={16} style={{ color: COLORS.tealLight }} />
-              ERP · SaaS · E-Commerce · IA
+              Websites · SaaS · Estudio IA
             </div>
           </div>
         </Reveal>
