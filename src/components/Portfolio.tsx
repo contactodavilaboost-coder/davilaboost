@@ -50,10 +50,10 @@ const SECTION_GROUPS: {
   },
   {
     id: "pc-lab",
-    badge: "03 · Proyectos en PC · Laboratorio & Automatización IA",
-    title: "Scrapers Inteligentes, Motores Creativos & Bots n8n",
+    badge: "03 · Proyectos en PC · Laboratorio Creativo & IA",
+    title: "Motores de Edición & Dirección Publicitaria con IA",
     subtitle:
-      "Soluciones desarrolladas en entorno local que combinan Python, Playwright, motores en TypeScript y flujos autónomos con IA.",
+      "Herramientas y sistemas propietarios desarrollados en entorno local para producción creativa, diseño publicitario de nivel agencia y edición multipista.",
   },
 ];
 
