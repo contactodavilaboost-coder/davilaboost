@@ -36,9 +36,9 @@ const services: Service[] = [
   },
   {
     icon: Cpu,
-    title: "Dirección de Arte & IA",
-    badge: "Laboratorio Creativo",
-    desc: "Sistemas propietarios para publicidad comercial de nivel agencia sin sello IA, motores de edición multipista y automatización.",
+    title: "Automatización IA · n8n & Odoo 18",
+    badge: "WhatsApp API & ERP",
+    desc: "Agentes de IA en WhatsApp (n8n + Evolution API), lectura de facturas PDF, módulos propios en Odoo 18 (Python/OWL 2.0) y motores creativos.",
   },
 ];
 

@@ -129,7 +129,7 @@ export function ProjectPreview({
         </div>
 
         {/* Window Content */}
-        {currentImg && (
+        {currentImg ? (
           <div className="relative flex-1 w-full overflow-hidden bg-[#0f1317]">
             <img
               src={currentImg}
@@ -145,7 +145,106 @@ export function ProjectPreview({
               }}
             />
           </div>
-        )}
+        ) : project.previewVariant === "n8n-bots" ? (
+          <div className="relative flex-1 w-full overflow-hidden bg-[#0d1217] p-3.5 sm:p-4 flex flex-col justify-between font-mono">
+            {/* Top live execution status bar */}
+            <div className="flex items-center justify-between gap-2 pb-2 border-b border-white/10">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-[11px] font-semibold text-emerald-300 tracking-tight">
+                  n8n v2.30.6 · Execution #5217: SUCCESS (2.1s)
+                </span>
+              </div>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                WhatsApp → Odoo CRM
+              </span>
+            </div>
+
+            {/* Node pipeline diagram */}
+            <div className="my-auto py-2 grid grid-cols-4 gap-2 items-center">
+              <div className="p-2.5 rounded-xl bg-[#162029] border border-emerald-500/40 shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
+                <div className="text-[9px] text-emerald-400 uppercase">Webhook</div>
+                <div className="text-xs font-bold text-white mt-0.5 truncate">Evolution API</div>
+                <div className="text-[9px] text-white/50 mt-1 truncate">WA Message In</div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-[#162029] border border-teal-400/40 shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
+                <div className="text-[9px] text-teal-300 uppercase">AI Agent</div>
+                <div className="text-xs font-bold text-white mt-0.5 truncate">Gemini 2.0</div>
+                <div className="text-[9px] text-white/50 mt-1 truncate">JSON + PDF OCR</div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-[#162029] border border-indigo-400/40 shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
+                <div className="text-[9px] text-indigo-300 uppercase">Subworkflow</div>
+                <div className="text-xs font-bold text-white mt-0.5 truncate">Odoo XML-RPC</div>
+                <div className="text-[9px] text-white/50 mt-1 truncate">Dedupe & Create</div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-[#162029] border border-amber-400/40 shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
+                <div className="text-[9px] text-amber-300 uppercase">Output</div>
+                <div className="text-xs font-bold text-white mt-0.5 truncate">Lead + Reply</div>
+                <div className="text-[9px] text-emerald-400 mt-1 truncate">✓ Synced 100%</div>
+              </div>
+            </div>
+
+            {/* Bottom terminal log */}
+            <div className="px-3 py-2 rounded-lg bg-black/50 border border-white/10 flex items-center justify-between text-[10px] text-white/70">
+              <span className="truncate">
+                <strong className="text-emerald-400">[ODOO_CRM]</strong> Lead creado · RIF validado · Orden PDF auditada
+              </span>
+              <span className="text-emerald-400 font-semibold ml-2 flex-shrink-0">200 OK</span>
+            </div>
+          </div>
+        ) : project.previewVariant === "odoo-kamaleon" ? (
+          <div className="relative flex-1 w-full overflow-hidden bg-[#0f131c] p-3.5 sm:p-4 flex flex-col justify-between font-mono">
+            {/* Top ERP Navbar */}
+            <div className="flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-950 via-indigo-900 to-slate-900 border border-indigo-500/30">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                <span className="text-xs font-bold text-white tracking-wide">
+                  KAMALEON ERP · ODOO 18
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-[10px]">
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  BCV Dual USD/Bs
+                </span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-200 border border-indigo-400/30">
+                  OWL 2.0 POS
+                </span>
+              </div>
+            </div>
+
+            {/* Middle ERP Dashboard Cards */}
+            <div className="grid grid-cols-3 gap-2 my-auto py-2">
+              <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10">
+                <div className="text-[9px] text-indigo-300 uppercase">POS Teclado (0% Mouse)</div>
+                <div className="text-sm font-bold text-white mt-0.5">180s → 22s</div>
+                <div className="text-[9px] text-emerald-400 mt-0.5">F6 · F8 · F10 Activos</div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10">
+                <div className="text-[9px] text-indigo-300 uppercase">Motor Comisiones</div>
+                <div className="text-sm font-bold text-white mt-0.5">7% · 5% · 2%</div>
+                <div className="text-[9px] text-amber-300 mt-0.5">Cálculo Automático</div>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10">
+                <div className="text-[9px] text-indigo-300 uppercase">Rutas & Catálogo</div>
+                <div className="text-sm font-bold text-white mt-0.5">XML-RPC Sync</div>
+                <div className="text-[9px] text-sky-300 mt-0.5">Docker + PG15 + SSL</div>
+              </div>
+            </div>
+
+            {/* Bottom Invoice Status Pill Bar */}
+            <div className="px-3 py-2 rounded-lg bg-black/40 border border-white/10 flex items-center justify-between text-[10px]">
+              <span className="text-white/75 truncate">
+                INV/2026/0842 · Pago Móvil BCV · Comisión 7% (≤20 días)
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold flex-shrink-0">
+                ● Pagado
+              </span>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

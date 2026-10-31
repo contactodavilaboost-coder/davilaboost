@@ -162,6 +162,12 @@ export function Contact() {
                 <option value="Plataforma de Gestión (Clínica, Inmobiliaria, Restaurante)">
                   Plataforma de Gestión a Medida
                 </option>
+                <option value="Automatización IA (n8n + WhatsApp API + CRM)">
+                  Automatización IA (n8n + WhatsApp API + CRM)
+                </option>
+                <option value="Implementación / Desarrollo Módulos Odoo 18 ERP">
+                  Implementación / Desarrollo Módulos Odoo 18 ERP
+                </option>
                 <option value="Dirección de Arte IA / Flyers / Estudio Creativo">
                   Dirección de Arte IA / Estudio Creativo
                 </option>

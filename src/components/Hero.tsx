@@ -75,7 +75,7 @@ export function Hero() {
             }}
           >
             <Sparkles size={14} />
-            Websites · Figma a Código · Plataformas SaaS · Dirección de Arte IA
+            Automatización IA (n8n + WhatsApp) · Odoo 18 ERP · Plataformas SaaS · Websites
           </div>
         </Reveal>
 

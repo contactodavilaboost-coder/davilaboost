@@ -50,10 +50,10 @@ const SECTION_GROUPS: {
   },
   {
     id: "pc-lab",
-    badge: "03 · Proyectos en PC · Laboratorio Creativo & IA",
-    title: "Motores de Edición & Dirección Publicitaria con IA",
+    badge: "03 · Automatización IA · n8n · Odoo 18 ERP & Motores Propios",
+    title: "Agentes IA en WhatsApp (n8n), Módulos Odoo 18 & Estudio Creativo",
     subtitle:
-      "Herramientas y sistemas propietarios desarrollados en entorno local para producción creativa, diseño publicitario de nivel agencia y edición multipista.",
+      "Orquestación autónoma con n8n + Evolution API, desarrollo full-stack sobre Odoo 18 (Python / OWL 2.0 / POS BCV) y motores propietarios de edición y publicidad con IA.",
   },
 ];
 

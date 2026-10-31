@@ -301,8 +301,66 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
 
   // ==========================================
-  // 3. PROYECTOS EN PC / LAB IA & AUTOMATIZACIÓN
+  // 3. AUTOMATIZACIÓN IA (n8n), ODOO 18 ERP & MOTORES PROPIOS
   // ==========================================
+  {
+    id: "n8n-whatsapp-odoo-ai",
+    title: "Agentes IA en WhatsApp & Sincronización Odoo CRM (n8n)",
+    subtitle: "Orquestación Autónoma con Evolution API · Gemini 2.0 · Lectura de Facturas PDF",
+    category: "pc-lab",
+    categoryLabel: "Automatización IA · n8n & WhatsApp API",
+    statusBadge: "En Producción · Docker",
+    statusType: "live",
+    shortDesc:
+      "Ecosistema de agentes conversacionales en n8n conectados a WhatsApp (Evolution API) y Odoo CRM que califican leads en <3s y procesan facturas PDF automáticamente.",
+    fullDesc:
+      "Arquitectura empresarial desplegada en contenedores Docker que conecta canales de mensajería instantánea (WhatsApp vía Evolution API / Meta Cloud API e Instagram DMs) con Odoo ERP, Google Sheets y bases de datos SQL. Incluye un Agente IA modular con Subworkflows que valida esquemas JSON, verifica duplicados por XML-RPC antes de crear el Lead en Odoo CRM, y un pipeline de visión/OCR con Gemini/Claude que lee facturas en PDF, valida los montos con código JavaScript y registra la orden de compra sin intervención humana.",
+    highlights: [
+      "Agente IA en WhatsApp (Evolution API + n8n v2.30+) con Subworkflow conectado a Odoo CRM en <3s",
+      "Validación estricta de esquemas y búsqueda previa por API/XML-RPC para evitar leads o clientes duplicados",
+      "Pipeline autónomo de lectura de facturas PDF con Gemini/Claude + doble validación matemática en JS",
+      "Creación automática de proveedores, órdenes de compra (purchase.order) en Odoo y alertas por WhatsApp",
+    ],
+    techStack: ["n8n", "Evolution API (WhatsApp)", "Gemini / Claude AI", "Odoo XML-RPC", "JavaScript / Python", "Docker"],
+    metrics: [
+      { label: "Respuesta", value: "< 3 seg" },
+      { label: "Intervención", value: "0% Manual" },
+      { label: "Ahorro Op.", value: "-87% Tiempo" },
+    ],
+    accentColor: "#10b981",
+    previewVariant: "n8n-bots",
+    repoFolder: "D:\\monke\\antigravityqlq\\n8n",
+    featured: true,
+  },
+  {
+    id: "odoo-18-kamaleon-erp",
+    title: "Kamaleon ERP & POS Bimonetario (Odoo 18)",
+    subtitle: "Módulos Propios en Python & OWL 2.0 · POS 100% Teclado · Tasa BCV & Comisiones",
+    category: "pc-lab",
+    categoryLabel: "Sistemas ERP · Odoo 18 Full-Stack",
+    statusBadge: "En Producción · Docker + SSL",
+    statusType: "live",
+    shortDesc:
+      "Implementación y desarrollo de módulos propios sobre Odoo 18 con POS bimonetario reactivo (de 180s a 22s por cobro), motor de comisiones automáticas y rutas RPC.",
+    fullDesc:
+      "Re-ingeniería y despliegue en producción de Odoo 18 (Zais / Said Express · Kamaleon ERP). Se extendió el nuevo framework OWL 2.0 del Punto de Venta para operar en doble moneda reactiva (USD + Bs BCV) y 100% con atajos de teclado estilo caja registradora (bajando el tiempo de despacho de 3 minutos a 22 segundos). Además, incorpora módulos propios en Python/XML/SCSS para cálculo automático de comisiones escalonadas (7%, 5%, 2% según días de cobro), asignación masiva de rutas de vendedores vía XML-RPC y despliegue con Docker Compose, PostgreSQL 15, Caddy SSL y backups automatizados.",
+    highlights: [
+      "POS Odoo 18 en OWL 2.0 con doble moneda en vivo (USD/BCV) y control 100% por teclado (F6/F8/F10): de 180s a 22s por venta",
+      "Motor automático de comisiones escalonadas (7% ≤20 días, 5% 21-25 días, 2% >25 días) inyectado en facturación",
+      "Scripts Python XML-RPC para sincronización de rutas de vendedores, catálogos PDF limpios y migración de stock",
+      "Infraestructura productiva en Docker Compose + PostgreSQL 15 + Caddy Reverse Proxy SSL + backups diarios pg_dump",
+    ],
+    techStack: ["Odoo 18", "Python (ORM / RPC)", "OWL 2.0 / JS", "PostgreSQL 15", "Docker & Caddy SSL", "SCSS / QWeb"],
+    metrics: [
+      { label: "Caja POS", value: "180s → 22s" },
+      { label: "Comisiones", value: "7% · 5% · 2%" },
+      { label: "Despliegue", value: "Docker + SSL" },
+    ],
+    accentColor: "#6366f1",
+    previewVariant: "odoo-kamaleon",
+    repoFolder: "D:\\monke\\Said Express",
+    featured: true,
+  },
   {
     id: "marketing-publicidad-pro",
     title: "Publicidad Pro · Dirección de Arte & Flyers IA",
@@ -375,7 +433,7 @@ export const PORTFOLIO_CATEGORIES: CategoryMeta[] = [
     id: "all",
     label: "Todos los Proyectos",
     shortLabel: "Todos",
-    description: "Ecosistema completo de sitios web, plataformas especializadas por industria y automatizaciones.",
+    description: "Ecosistema completo de sitios web, plataformas especializadas por industria, ERP Odoo 18 y automatizaciones IA en n8n.",
     count: PORTFOLIO_PROJECTS.length,
   },
   {
@@ -388,15 +446,15 @@ export const PORTFOLIO_CATEGORIES: CategoryMeta[] = [
   {
     id: "gestion",
     label: "Plataformas por Industria",
-    shortLabel: "Plataformas por Industria",
+    shortLabel: "Plataformas SaaS",
     description: "Sistemas especializados para clínicas de fisioterapia (FisioSys), inmobiliarias (InmoGestión), nutrición (NutriRinna) y restaurantes (Sistema El Valera).",
     count: PORTFOLIO_PROJECTS.filter((p) => p.category === "gestion").length,
   },
   {
     id: "pc-lab",
-    label: "Proyectos en PC · Lab IA",
-    shortLabel: "Laboratorio PC & IA",
-    description: "Herramientas locales, scrapers inteligentes con Playwright, motores creativos y bots autónomos en n8n.",
+    label: "Automatización IA · n8n · Odoo 18",
+    shortLabel: "IA · n8n · Odoo ERP",
+    description: "Agentes de IA en WhatsApp con n8n y Evolution API, módulos propios en Odoo 18 ERP, motores creativos y dirección de arte.",
     count: PORTFOLIO_PROJECTS.filter((p) => p.category === "pc-lab").length,
   },
 ];
